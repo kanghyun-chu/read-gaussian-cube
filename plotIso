@@ -1,7 +1,13 @@
 function plotIso( Cubes, isolevels , figN )
-% Isosurface analysis for Gaussian-cube struct object
-%   The color code of isosurface is cool-colormap.
-%   If figN is the starting index of the Isosurface figure
+% Visualization of Isosurfaces for Gaussian-cube struct object
+%   Example)
+%      plotIso( Cube, [-0.01, 0.01] )
+%         This will create a two isosurfaces of level ±0.01 in a new figure.
+%
+%      plotIso( Cubes(1:8), [0.01, 0.1, 1], 100) 
+%         Cubes must be a struct array at least 8 elements in it.
+%         This will create 8 figures from figure(100) to figure(107) with
+%         three isosurfaces of level 0.01, 0.1, and 1.
 
 arguments
     Cubes     struct
@@ -86,10 +92,9 @@ for N = 1:numel(Cubes)
 
     axis equal tight
     view(3);
-     
-    % view([40 ,20])
 end
 end
+
 %% Atomic Radii and Color codes from VESTA
 function rad_rgb = load_Colorcode()
   % rad_rgb(:,1)  = radii, 
