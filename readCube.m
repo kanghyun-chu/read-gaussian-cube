@@ -128,8 +128,10 @@ for n = 1:numel(FileNames)
         warning(" Number of data point disagree in %s", filename)
         continue;
     end
-
-    data = reshape(data, NGr123);
+    
+    NGr_321 = NGr123(end:-1:1);
+    data = reshape(data, NGr_321); % Array index ordering: axis_3,2,1
+    
     Cube(n).cubedat = data * b0cb;
 
 end
