@@ -132,7 +132,7 @@ for n = 1:numel(FileNames)
     NGr_321 = NGr123(end:-1:1);
     data = reshape(data, NGr_321); % Array index ordering: axis_3,2,1
     
-    Cube(n).cubedat = data * b0cb;
+    Cube(n).cubedat = data / b0cb;
 
 end
     Cube = reshape(Cube, size(FileNames) );
